@@ -1,16 +1,27 @@
 class GuessingGame {
   constructor() {
-    throw new Error('Not implemented');
+    this.min = null;
+    this.max = null;
+    this.lastReturn = null;
   }
-  /*
-  setRange(min, max) { }
 
-  guess() { }
+  setRange(min, max) {
+    this.min = min;
+    this.max = max;
+  }
 
-  lower() { }
+  guess() {
+    this.lastReturn = Math.ceil((this.max + this.min) / 2);
+    return this.lastReturn;
+  }
 
-  greater() { }
-*/
+  lower() {
+    this.max = this.lastReturn;
+  }
+
+  greater() {
+    this.min = this.lastReturn;
+  }
 }
 
 module.exports = GuessingGame;
